@@ -1,0 +1,238 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade CMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #6a1b9a; /* Deep Purple */
+            --secondary-color: #ffeb3b; /* Bright Yellow */
+            --accent-color: #00e5ff; /* Cyan */
+            --background-color: #121212; /* Dark Gray */
+            --text-color: #e0e0e0; /* Off-white */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        .orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .neon-text {
+            text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color), 0 0 15px var(--accent-color), 0 0 20px rgba(0, 229, 255, 0.4);
+        }
+        .neon-border {
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 0 5px var(--accent-color), inset 0 0 5px var(--accent-color);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 10px var(--secondary-color);
+        }
+        .btn {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            transition: all 0.2s;
+            border: 2px solid var(--primary-color);
+        }
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: #212121;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .btn-secondary:hover {
+            box-shadow: 0 4px 15px rgba(255, 235, 59, 0.4);
+        }
+        .card {
+            background-color: #1e1e1e;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border: 1px solid #333;
+        }
+        .input-field {
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            color: var(--text-color);
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            transition: border-color 0.2s;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e1e1e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #6a1b9a;
+            border-radius: 6px;
+            border: 3px solid #1e1e1e;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen">
+
+    <!-- Sidebar Navigation -->
+    <nav class="w-64 bg-gray-900 border-r border-gray-800 p-6 flex flex-col justify-between">
+        <div class="space-y-6">
+            <div class="text-center">
+                <h1 class="text-3xl font-bold orbitron text-white neon-text mb-2">ARCADE CMS</h1>
+                <p class="text-xs text-gray-400">Control Panel</p>
+            </div>
+            <a href="#" class="block p-3 rounded-lg flex items-center space-x-3 text-gray-300 hover:bg-gray-800 transition-colors glow-hover">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                </svg>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="block p-3 rounded-lg flex items-center space-x-3 text-white bg-gray-800 border-l-4 border-purple-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7z" />
+                    <path fill-rule="evenodd" d="M3 18a2 2 0 01-2-2V7a2 2 0 012-2h10a2 2 0 012 2v9a2 2 0 01-2 2H3zm11-10a1 1 0 011 1v5a1 1 0 11-2 0V9a1 1 0 011-1zM5 9a1 1 0 00-1 1v5a1 1 0 001 1h2a1 1 0 001-1v-5a1 1 0 00-1-1H5z" clip-rule="evenodd" />
+                </svg>
+                <span>Games</span>
+            </a>
+            <a href="#" class="block p-3 rounded-lg flex items-center space-x-3 text-gray-300 hover:bg-gray-800 transition-colors glow-hover">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 12.07a3 3 0 10.001-.001zm0 0a3 3 0 10-.001.001zm-1.07 4.93a3 3 0 10-6 0 3 3 0 006 0zM17 16a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span>Users</span>
+            </a>
+            <a href="#" class="block p-3 rounded-lg flex items-center space-x-3 text-gray-300 hover:bg-gray-800 transition-colors glow-hover">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M11.49 3.17c-.38-.856-1.542-.856-1.92 0L2.126 15.22a1.5 1.5 0 001.302 2.28h13.14a1.5 1.5 0 001.302-2.28L11.49 3.17zm.358-.857l.001.002z" clip-rule="evenodd" />
+                </svg>
+                <span>Analytics</span>
+            </a>
+            <a href="#" class="block p-3 rounded-lg flex items-center space-x-3 text-gray-300 hover:bg-gray-800 transition-colors glow-hover">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M11.49 3.17c-.38-.856-1.542-.856-1.92 0L2.126 15.22a1.5 1.5 0 001.302 2.28h13.14a1.5 1.5 0 001.302-2.28L11.49 3.17zm.358-.857l.001.002z" clip-rule="evenodd" />
+                </svg>
+                <span>Settings</span>
+            </a>
+        </div>
+        <div class="mt-8">
+            <button class="w-full btn btn-secondary glow-hover">
+                Log Out
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 p-8 overflow-y-auto">
+        <header class="flex justify-between items-center mb-8 pb-4 border-b-2 border-gray-700">
+            <div class="flex flex-col">
+                <h2 class="text-4xl font-bold text-white orbitron">Game Management</h2>
+                <p class="text-sm text-gray-400 mt-1">Manage and publish your arcade games.</p>
+            </div>
+            <div class="flex space-x-4">
+                <div class="relative w-72">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <input type="text" placeholder="Search games..." class="w-full input-field pl-10" />
+                </div>
+                <button class="btn glow-hover">
+                    <span class="flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                        <span>Add New Game</span>
+                    </span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Game List Table -->
+        <div class="overflow-x-auto card p-6">
+            <table class="w-full text-left whitespace-nowrap">
+                <thead>
+                    <tr class="uppercase text-gray-400 text-sm font-semibold tracking-wider border-b border-gray-700">
+                        <th class="p-4">Game Title</th>
+                        <th class="p-4">Category</th>
+                        <th class="p-4">Status</th>
+                        <th class="p-4">Last Updated</th>
+                        <th class="p-4">Plays</th>
+                        <th class="p-4 text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example Game Row -->
+                    <tr class="border-b border-gray-800 hover:bg-gray-800 transition-colors">
+                        <td class="p-4 flex items-center space-x-3">
+                            <img src="https://placehold.co/40x40/6a1b9a/ffffff?text=GM" class="rounded-lg neon-border" alt="Game Thumbnail">
+                            <div class="font-medium text-white">Cyber Racer 2077</div>
+                        </td>
+                        <td class="p-4 text-gray-300">Racing</td>
+                        <td class="p-4">
+                            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-green-500 text-white">
+                                Published
+                            </span>
+                        </td>
+                        <td class="p-4 text-gray-400">2 days ago</td>
+                        <td class="p-4 text-gray-300">12,543</td>
+                        <td class="p-4 text-right space-x-2">
+                            <button class="text-indigo-400 hover:text-indigo-300 transition-colors">Edit</button>
+                            <button class="text-red-400 hover:text-red-300 transition-colors">Delete</button>
+                        </td>
+                    </tr>
+                    <tr class="border-b border-gray-800 hover:bg-gray-800 transition-colors">
+                        <td class="p-4 flex items-center space-x-3">
+                            <img src="https://placehold.co/40x40/ffeb3b/212121?text=GM" class="rounded-lg neon-border" alt="Game Thumbnail">
+                            <div class="font-medium text-white">Galactic Defender</div>
+                        </td>
+                        <td class="p-4 text-gray-300">Shooter</td>
+                        <td class="p-4">
+                            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-yellow-500 text-black">
+                                Draft
+                            </span>
+                        </td>
+                        <td class="p-4 text-gray-400">5 hours ago</td>
+                        <td class="p-4 text-gray-300">3,109</td>
+                        <td class="p-4 text-right space-x-2">
+                            <button class="text-indigo-400 hover:text-indigo-300 transition-colors">Edit</button>
+                            <button class="text-red-400 hover:text-red-300 transition-colors">Delete</button>
+                        </td>
+                    </tr>
+                    <tr class="border-b border-gray-800 hover:bg-gray-800 transition-colors">
+                        <td class="p-4 flex items-center space-x-3">
+                            <img src="https://placehold.co/40x40/00e5ff/212121?text=GM" class="rounded-lg neon-border" alt="Game Thumbnail">
+                            <div class="font-medium text-white">Pixel Quest</div>
+                        </td>
+                        <td class="p-4 text-gray-300">Platformer</td>
+                        <td class="p-4">
+                            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-green-500 text-white">
+                                Published
+                            </span>
+                        </td>
+                        <td class="p-4 text-gray-400">1 week ago</td>
+                        <td class="p-4 text-gray-300">25,890</td>
+                        <td class="p-4 text-right space-x-2">
+                            <button class="text-indigo-400 hover:text-indigo-300 transition-colors">Edit</button>
+                            <button class="text-red-400 hover:text-red-300 transition-colors">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
